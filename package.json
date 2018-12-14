@@ -1,0 +1,57 @@
+{
+  "name": "node-tokenbased-auth",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "mocha server/**/*.test.js",
+    "test-watch": "nodemon --exec \"npm test\""
+  },
+  "engines": {
+    "node": "10.0.0"
+  },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "dependencies": {
+    "async": "^2.6.1",
+    "busboy": "^0.2.14",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "json-beautify": "^1.0.1",
+    "jsonwebtoken": "^8.4.0",
+    "md5": "^2.2.1",
+    "mongodb": "^2.2.5",
+    "mongoose": "^4.5.9",
+    "mongoose-type-url": "^1.0.5",
+    "mongoose-unique-validator": "^2.0.2",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "node-json-transform": "^1.0.17",
+    "node-uuid": "^1.4.8",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "qs": "^6.6.0",
+    "read-excel-file": "^2.0.6",
+    "streamifier": "^0.1.1",
+    "validator": "^10.9.0",
+    "xlsx": "^0.14.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "expect": "^1.20.2",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.10.2",
+    "should": "~7.1.0",
+    "supertest": "^2.0.0"
+  }
+}
