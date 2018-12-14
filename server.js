@@ -1,7 +1,7 @@
 const express = require('express');  
 const http = require('http'); // you really want https here!
 const app = express();
-const passport=require('./models/user.js');
+const passport=require('./models/generateJwt.js');
 
 const bodyParser = require('body-parser');
 // const express = require('express');
