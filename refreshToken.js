@@ -45,7 +45,7 @@ passport.use(new Strategy(
 // helper //
 ////////////
 
-function serializeUser(req, res, next) {
+var serializeUser=(req, res, next)=> {
   db.user.updateOrCreate(req.user, function(err, user) {
     if (err) {
       return next(err);
@@ -58,7 +58,7 @@ function serializeUser(req, res, next) {
   });
 }
 
-function serializeClient(req, res, next) {
+var serializeClient=(req, res, next)=> {
   if (req.query.permanent === 'true') {
     db.client.updateOrCreate({
       user: req.user
@@ -75,7 +75,7 @@ function serializeClient(req, res, next) {
   }
 }
 
-function validateRefreshToken(req, res, next) {
+var validateRefreshToken=(req, res, next)=> {
   db.client.findUserOfToken(req.body, function(err, user) {
     if (err) {
       return next(err);
@@ -85,14 +85,14 @@ function validateRefreshToken(req, res, next) {
   });
 }
 
-function rejectToken(req, res, next) {
+var rejectToken=(req, res, next)=> {
   db.client.rejectToken(req.body, next);
 }
 
 //////////////////////
 // token generation //
 //////////////////////
-function generateAccessToken(req, res, next) {
+var generateAccessToken=(req, res, next)=> {
   req.token = req.token ||  {};
   req.token.accessToken = jwt.sign({
     id: req.user.id,
@@ -103,7 +103,7 @@ function generateAccessToken(req, res, next) {
   next();
 }
 
-function generateRefreshToken(req, res, next) {
+var generateRefreshToken=(req, res, next)=> {
   if (req.query.permanent === 'true') {
     req.token.refreshToken = req.user.clientId.toString() + '.' + crypto.randomBytes(
       40).toString('hex');

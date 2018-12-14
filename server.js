@@ -24,7 +24,7 @@ const db = {
     cb(null, user);
   }
 };
-function serialize(req, res, next) {  
+var serialize=(req, res, next)=> {  
 
 	console.log('req.body');
   db.updateOrCreate(req.user, function(err, user){
@@ -38,7 +38,7 @@ function serialize(req, res, next) {
 }
 
 
-function generateToken(req, res, next) {  
+var generateToken=(req, res, next)=> {  
   req.token = jwt.sign({
     id: req.user.id,
   }, 'server secret', {
@@ -47,7 +47,7 @@ function generateToken(req, res, next) {
   next();
 }
 
-function respond(req, res) {  
+var respond=(req, res) =>{  
   res.status(200).json({
     user: req.user,
     token: req.token
